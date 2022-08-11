@@ -1,0 +1,20 @@
+apiVersion: v1
+entries:
+  nist-data-mirror:
+  - apiVersion: v2
+    appVersion: 1.5.4
+    created: "2022-08-11T09:13:17.430357395Z"
+    description: nist-data-mirror
+    digest: ac74061aac914bd6fdd94326af8335b602496c3c0ae24ff724905fa367269902
+    maintainers:
+    - name: Ujjwal Patil
+    - email: okgolove@markeloff.net
+      name: Mikhail Naletov
+    name: nist-data-mirror
+    sources:
+    - https://github.com/stevespringett/nist-data-mirror.git
+    type: application
+    urls:
+    - https://github.com/jingshouyan/helm-charts/releases/download/nist-data-mirror-2.0.0/nist-data-mirror-2.0.0.tgz
+    version: 2.0.0
+generated: "2022-08-11T09:13:17.208109992Z"
