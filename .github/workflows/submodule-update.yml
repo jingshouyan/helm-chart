@@ -1,0 +1,25 @@
+name: Submodules auto update
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+jobs:
+  submodule-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: 'true'
+      - name: Update Submodules
+        run: git submodule foreach git pull 
+      - name: Git Commit
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "noreply@github.com"
+          git add .
+          git commit -m "Update submodules" || echo "No changes to commit"
+      - name: Git Push
+        run: git push
