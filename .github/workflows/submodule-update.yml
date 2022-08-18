@@ -25,4 +25,4 @@ jobs:
           git add .
           git commit -m "Update submodules" || echo "No changes to commit"
       - name: Git Push
-        run: git push orgin main
+        run: git push 
