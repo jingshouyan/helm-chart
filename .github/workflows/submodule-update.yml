@@ -9,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
+          ref: main
           fetch-depth: 0
           submodules: 'true'
       - name: Update Submodules
-        run: git submodule foreach git pull 
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive --force
       - name: Git Commit
         run: |
           git config --global user.name "GitHub Action"
@@ -22,4 +25,4 @@ jobs:
           git add .
           git commit -m "Update submodules" || echo "No changes to commit"
       - name: Git Push
-        run: git push
+        run: git push orgin main
