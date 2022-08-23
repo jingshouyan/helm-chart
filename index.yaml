@@ -19,6 +19,16 @@ entries:
     version: 2.0.0
   nvd-data-mirror:
   - apiVersion: v2
+    appVersion: 0.2.4
+    created: "2022-08-23T08:56:50.50282933Z"
+    description: A Helm chart for Kubernetes
+    digest: f034aa96ece6a342284db832a396408b3446c49cba3df7beb00c491fc9167dbf
+    name: nvd-data-mirror
+    type: application
+    urls:
+    - https://github.com/jingshouyan/helm-charts/releases/download/nvd-data-mirror-0.2.4/nvd-data-mirror-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: 0.2.3
     created: "2022-08-14T00:58:44.507930784Z"
     description: A Helm chart for Kubernetes
