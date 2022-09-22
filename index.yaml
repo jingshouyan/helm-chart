@@ -3,6 +3,16 @@ entries:
   busybox:
   - apiVersion: v2
     appVersion: 1.34.1
+    created: "2022-09-22T06:54:15.901443103Z"
+    description: A Helm chart for Kubernetes
+    digest: 74ed5157a6435aaef270ce0d382109f46b5f8ae19ecd4a48cbe92387def18630
+    name: busybox
+    type: application
+    urls:
+    - https://github.com/jingshouyan/helm-charts/releases/download/busybox-0.1.2/busybox-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.34.1
     created: "2022-09-22T06:46:14.111854338Z"
     description: A Helm chart for Kubernetes
     digest: 520fd7fdba76864825d07dbd8d3fa63cd9f6915dad910a61d5223128bdd911d2
