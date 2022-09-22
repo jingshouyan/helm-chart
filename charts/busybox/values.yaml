@@ -1,11 +1,11 @@
-# Default values for nvd-data-mirror.
+# Default values for busybox.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: jingshouyan/nvd-data-mirror
+  repository: busybox
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -39,7 +39,6 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
-  nodePort: 0
 
 ingress:
   enabled: false
@@ -57,17 +56,17 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: 
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 500m
-    memory: 64Mi
-  requests:
-    cpu: 100m
-    memory: 32Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 autoscaling:
   enabled: false
@@ -81,40 +80,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-## Enable persistence using Persistent Volume Claims
-## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-##
-persistence:
-  enabled: true
-  data:
-    ## openproject data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-
-    ## A manually managed Persistent Volume and Claim
-    ## Requires persistence.enabled: true
-    ## If defined, PVC must be created manually before volume will be bound
-    # existingClaim: nvd-data
-
-    accessMode: ReadWriteOnce
-    size: 8Gi
-
-
-volumes: {}
-  # Configure any addtional volumes need to be attached to the pod
-  # - name: certificates
-  #   hostPath:
-  #     path: /etc/pki
-  #     type: Directory
-
-
-volumeMounts: {}
-  # Configure any addtional volumes need to be attached to the containers
-  # - name: certificates
-  #   mountPath: /etc/pki
