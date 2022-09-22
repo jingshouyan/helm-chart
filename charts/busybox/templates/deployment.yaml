@@ -32,9 +32,24 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}          
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          command: ["tail", "-f", "/dev/null"]
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /dev/null
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            exec:
+              command:
+              - cat
+              - /dev/null
+            initialDelaySeconds: 5
+            periodSeconds: 5
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
